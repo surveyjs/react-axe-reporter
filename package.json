@@ -8,8 +8,10 @@
         "test": "vitest",
         "test:cov": "vitest run --coverage",
         "build": "tsc && vite build",
-        "preview": "vite preview"
-    },
+        "preview": "vite preview",
+        "docs": "typedoc",
+        "docs:watch": "typedoc --watch"
+        },
     "keywords": [],
     "author": "",
     "license": "MIT",
@@ -25,6 +27,8 @@
         "@vitejs/plugin-react": "^4.4.0",
         "@vitest/coverage-v8": "^3.1.1",
         "jsdom": "^26.1.0",
+        "typedoc": "^0.28.2",
+        "typedoc-github-theme": "^0.3.0",
         "typescript": "^5.8.3",
         "vite": "^6.3.1",
         "vitest": "^3.1.1"

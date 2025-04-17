@@ -1,5 +1,20 @@
 import React from 'react';
 
+/**
+ * A circular gauge component that displays a percentage value with a visual indicator.
+ * The gauge consists of a circular progress bar and a centered percentage text.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {number} [props.percentage=0] - The percentage value to display (0-100)
+ * @param {number} [props.size=256] - The size of the gauge in pixels
+ * @param {number} [props.strokeWidth=10] - The width of the gauge's stroke in pixels
+ * @param {string} [props.color='#19B394'] - The color of the progress indicator
+ * @param {string} [props.backgroundColor='rgb(245, 245, 245)'] - The color of the background track
+ * @param {string} [props.textColor='#19B394'] - The color of the percentage text
+ * @param {number} [props.textSize=48] - The size of the percentage text in pixels
+ * @returns {JSX.Element} A circular gauge component
+ */
 export default function PercentageGauge({
   percentage = 0,
   size = 256,

@@ -1,0 +1,30 @@
+{
+    "$schema": "https://typedoc.org/schema.json",
+    "entryPoints": ["src/**/*.tsx"],
+    "entryPointStrategy": "expand",
+    "out": "docs",
+    "name": "Axe Reporter Documentation",
+    "includeVersion": true,
+    "excludePrivate": false,
+    "excludeProtected": false,
+    "excludeExternals": true,
+    "exclude": ["src/**/*.test.tsx", "src/declaration.d.ts", "src/tags.ts", "src/assets/**/*"],
+    "readme": "README.md",
+    "plugin": ["typedoc-github-theme"],
+    "theme": "typedoc-github-theme",
+    "categorizeByGroup": true,
+    "searchInComments": true,
+    "navigationLinks": {
+      "GitHub": "https://github.com/surveyjs/axe-reporter"
+    },
+    "sidebarLinks": {
+      "API": "https://surveyjs.github.io/axe-reporter/api"
+    },
+    "visibilityFilters": {
+      "protected": true,
+      "private": true,
+      "inherited": true,
+      "external": false
+    }
+  }
+  

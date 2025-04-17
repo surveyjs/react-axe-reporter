@@ -2,6 +2,22 @@ import React from 'react';
 import styles from './styles/rule-summary.module.css';
 import { getWcagTagTitles } from './tags';
 
+/**
+ * A table component that displays a summary of accessibility rule violations.
+ * Shows a numbered list of rules with their descriptions, WCAG tags, and number of issues.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Array} [props.data=[]] - Array of accessibility rule violations to display
+ * @param {Object} props.data[].id - Unique identifier for the rule
+ * @param {string} props.data[].impact - Impact level of the rule violation
+ * @param {Array} props.data[].tags - Array of WCAG tags associated with the rule
+ * @param {string} props.data[].description - Detailed description of the rule
+ * @param {string} props.data[].help - Help text explaining the rule
+ * @param {string} props.data[].helpUrl - URL to additional help documentation
+ * @param {Array} props.data[].nodes - Array of DOM nodes affected by the rule
+ * @returns {JSX.Element} A table summarizing accessibility rule violations
+ */
 export default function ReportSummary({ data = [] }) {
   return (
     <div className={styles.axe_rule_report}>

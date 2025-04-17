@@ -3,6 +3,22 @@ import styles from './styles/report-item.module.css';
 import RuleSummary from './rule-summary';
 import { getWcagTagTitles } from './tags';
 
+/**
+ * A component that displays detailed information about a single accessibility rule check.
+ * Shows the rule's help text, description, ID, WCAG tags, and affected nodes.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Object} [props.rule] - The accessibility rule data
+ * @param {string} [props.rule.id=""] - Unique identifier for the rule
+ * @param {string} [props.rule.impact=""] - Impact level of the rule violation
+ * @param {Array} [props.rule.tags=[]] - Array of WCAG tags associated with the rule
+ * @param {string} [props.rule.description=""] - Detailed description of the rule
+ * @param {string} [props.rule.help=""] - Help text explaining the rule
+ * @param {string} [props.rule.helpUrl=""] - URL to additional help documentation
+ * @param {Array} [props.rule.nodes=[]] - Array of DOM nodes affected by the rule
+ * @returns {JSX.Element} A detailed view of an accessibility rule check
+ */
 export default function ReportItem({ rule = { id: "", impact: "", tags: [], description: "", help: "", helpUrl: "", nodes: [] } }) {
   return (
     <div className={styles.axe_report_item_container}>

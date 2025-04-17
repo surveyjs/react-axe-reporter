@@ -1,6 +1,19 @@
 import React from 'react';
 import styles from './styles/rule-summary.module.css';
 
+/**
+ * A table component that displays detailed information about nodes affected by an accessibility rule.
+ * Shows the location, source code, and related information for each affected DOM node.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Array} [props.nodes=[]] - Array of DOM nodes affected by the rule
+ * @param {Array} props.nodes[].target - Array containing the selector for the affected element
+ * @param {string} props.nodes[].html - HTML source code of the affected element
+ * @param {Array} props.nodes[].any - Array containing additional information about the violation
+ * @param {string} props.nodes[].any[].message - Message describing the violation
+ * @returns {JSX.Element} A table showing detailed information about affected nodes
+ */
 export default function RuleSummary({ nodes = [] }) {
     return (
         <div className={styles.axe_rule_report}>

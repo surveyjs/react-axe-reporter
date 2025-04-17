@@ -1,6 +1,13 @@
 import React from 'react';
 import styles from './styles/status-text.module.css';
 
+/**
+ * A component that displays a status message about accessibility testing.
+ * Provides a disclaimer about the limitations of automated testing and the need for manual testing.
+ * 
+ * @component
+ * @returns {JSX.Element} A status message component about accessibility testing
+ */
 export default function StatusText() {
   return (
     <div className={styles.axe_report_status_text}>

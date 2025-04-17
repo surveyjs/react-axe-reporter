@@ -5,6 +5,20 @@ import StatusText from './status-text';
 import ReportSummary from './report-summary';
 import ReportSection from './report-section';
 
+/**
+ * Main component for displaying AXE accessibility test results.
+ * Renders a comprehensive report including a summary, percentage gauge,
+ * and detailed sections for passed and failed checks.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Object} [props.data={ passes: [], violations: [] }] - The AXE test results data
+ * @param {Array} props.data.passes - Array of passed accessibility checks
+ * @param {Array} props.data.violations - Array of failed accessibility checks
+ * @param {string} [props.info1=""] - Additional information text to display in the header
+ * @param {string} [props.info2=""] - Additional information text to display in the header
+ * @returns {JSX.Element} A complete AXE accessibility report
+ */
 export default function AxeReport({ data = { passes: [], violations: []}, info1 = "", info2 = "" }) {
   const percentage = Math.ceil((data.passes.length/(data.passes.length + data.violations.length)) * 100);
   return (

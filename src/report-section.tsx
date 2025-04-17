@@ -4,6 +4,16 @@ import Collapse_16x16 from './assets/Collapse_16x16';
 import Expand_16x16 from './assets/Expand_16x16';
 import ReportItem from './report-item';
 
+/**
+ * A collapsible section component that displays a list of accessibility check results.
+ * Each section can be expanded or collapsed to show or hide the detailed results.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} [props.title=""] - The title of the section (e.g., "Failed Checks" or "Passed Checks")
+ * @param {Array} [props.data=[]] - Array of accessibility check results to display
+ * @returns {JSX.Element} A collapsible section containing accessibility check results
+ */
 export default function ReportSection({ title = "", data = [] }) {
   const [collapsed, setCollapsed] = useState(true);
   const handleToggle = () => {
