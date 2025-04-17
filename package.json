@@ -1,23 +1,32 @@
 {
-    "name": "react-typescript",
+    "name": "axe-reporter",
     "version": "1.0.0",
     "type": "module",
-    "description": "React TypeScript on Replit, using Vite bundler",
+    "description": "Axe HTML Reporter",
     "scripts": {
         "dev": "vite --host 0.0.0.0",
+        "test": "vitest",
+        "test:cov": "vitest run --coverage",
         "build": "tsc && vite build",
         "preview": "vite preview"
     },
     "keywords": [],
     "author": "",
-    "license": "ISC",
+    "license": "MIT",
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
     "devDependencies": {
+        "@testing-library/jest-dom": "^6.6.3",
+        "@testing-library/react": "^16.3.0",
         "@types/react": "^18.0.15",
         "@types/react-dom": "^18.0.6",
         "@vitejs/plugin-react": "^4.4.0",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
+        "@vitest/coverage-v8": "^3.1.1",
+        "jsdom": "^26.1.0",
         "typescript": "^5.8.3",
-        "vite": "^6.3.1"
+        "vite": "^6.3.1",
+        "vitest": "^3.1.1"
     }
 }
