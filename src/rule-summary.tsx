@@ -15,41 +15,42 @@ import styles from './styles/rule-summary.module.css';
  * @returns {JSX.Element} A table showing detailed information about affected nodes
  */
 export default function RuleSummary({ nodes = [] }) {
+    const getElementLocation = (node: any) => node.target && node.target[0] || 'undefined';
     return (
-        <div className={styles.axe_rule_report}>
-            <div className={styles.axe_rule_report_header}>
-                <div className={styles.axe_rule_report_header_cell_1}>
+        <div className={styles.axe_rule_report} role='grid'>
+            <div className={styles.axe_rule_report_header} data-testid="rule-header" role='row'>
+                <div className={styles.axe_rule_report_header_cell_1} data-testid="rule-header-cell">
                     <div className={styles.axe_rule_report_header_cell_content}>
                         <span className={styles.axe_rule_report_header_cell_title_text}>#</span>
                     </div>
                 </div>
-                <div className={styles.axe_rule_report_header_cell_2}>
+                <div className={styles.axe_rule_report_header_cell_2} data-testid="rule-header-cell">
                     <div className={styles.axe_rule_report_header_cell_content}>
                         <span className={styles.axe_rule_report_header_cell_title_text}>Description</span>
                     </div>
                 </div>
-                <div className={styles.axe_rule_report_header_cell_3}>
+                <div className={styles.axe_rule_report_header_cell_3} data-testid="rule-header-cell">
                     <div className={styles.axe_rule_report_header_cell_content}>
                         <span className={styles.axe_rule_report_header_cell_title_text}>WCAG / Rule</span>
                     </div>
                 </div>
             </div>
             {nodes.map((node: any, index: number) =>
-                <div className={styles.axe_rule_report_row} key={index}>
-                    <div className={styles.axe_rule_report_row_cell_1}>
+                <div className={styles.axe_rule_report_row} key={index} data-testid="rule-row" role='row'>
+                    <div className={styles.axe_rule_report_row_cell_1} data-testid="rule-row-cell">
                         <div className={styles.axe_rule_report_row_cell_content}>
-                            <span className={styles.axe_rule_report_row_cell_text}>{index + 1}</span>
+                            <span className={styles.axe_rule_report_row_cell_text} data-testid="rule-text">{index + 1}</span>
                         </div>
                     </div>
-                    <div className={styles.axe_rule_report_row_cell_2}>
+                    <div className={styles.axe_rule_report_row_cell_2} data-testid="rule-row-cell">
                         <div className={styles.axe_rule_report_row_cell_content}>
-                            <span className={styles.axe_rule_report_row_cell_text}>Element location:&#xA0;{node.target[0]}<br />
+                            <span className={styles.axe_rule_report_row_cell_text} data-testid="rule-text">Element location:&#xA0;{getElementLocation(node)}<br />
                                 Element source:&#xA0;{node.html}</span>
                         </div>
                     </div>
-                    <div className={styles.axe_rule_report_row_cell_3}>
+                    <div className={styles.axe_rule_report_row_cell_3} data-testid="rule-row-cell">
                         <div className={styles.axe_rule_report_row_cell_content}>
-                            <span className={styles.axe_rule_report_row_cell_text}>
+                            <span className={styles.axe_rule_report_row_cell_text} data-testid="rule-text">
                                 {node.any && node.any[0] ?
                                 <>
                                     {node.any[0].message}
@@ -57,7 +58,7 @@ export default function RuleSummary({ nodes = [] }) {
                                 </>
                                 : null}
                                 <>Related node:&#xA0;</>
-                                {node.target[0]}
+                                {getElementLocation(node)}
                             </span>
                         </div>
                     </div>

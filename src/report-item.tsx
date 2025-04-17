@@ -22,11 +22,11 @@ import { getWcagTagTitles } from './tags';
 export default function ReportItem({ rule = { id: "", impact: "", tags: [], description: "", help: "", helpUrl: "", nodes: [] } }) {
   return (
     <div className={styles.axe_report_item_container}>
-        <div className={styles.axe_report_item_header}>
-            <div className={styles.axe_report_item_header_title}><span className={styles.axe_report_item_header_title_text}>{rule.help}</span></div>
+        <div className={styles.axe_report_item_header} data-testid="report-header" role="heading">
+            <div className={styles.axe_report_item_header_title}><span className={styles.axe_report_item_header_title_text} data-testid="title-text">{rule.help}</span></div>
         </div>
-        <div className={styles.axe_report_item_comment}><span className={styles.axe_report_item_comment_text}>{rule.description}</span></div>
-        <div className={styles.axe_report_item_info}>
+        <div className={styles.axe_report_item_comment} data-testid="description"><span className={styles.axe_report_item_comment_text}>{rule.description}</span></div>
+        <div className={styles.axe_report_item_info} data-testid="wcag-info">
             <div className={styles.axe_report_item_info_container}>
                 <div className={styles.axe_report_item_info_label}><span className={styles.axe_report_item_info_label_text}>{rule.id}:</span></div>
                 <div className={styles.axe_report_item_info_values}>
@@ -36,17 +36,17 @@ export default function ReportItem({ rule = { id: "", impact: "", tags: [], desc
                 </div>
             </div>
         </div>
-        <div className={styles.axe_report_item_tags}>
+        <div className={styles.axe_report_item_tags} data-testid="tags-section">
             <div className={styles.axe_report_item_tags_label}><span className={styles.axe_report_item_tags_label_text}>Issue Tags:</span></div>
             <div className={styles.axe_report_item_tags_container}>
-                {rule.tags.map((tag, index) => 
+                {(rule.tags || []).map((tag, index) => 
                 <div className={styles.axe_rule_tag} key={index}>
                     <div className={styles.axe_rule_tag_container}><span className={styles.axe_rule_tag_text}>{tag}</span></div>
                 </div>
                 )}
             </div>
         </div>
-        <div className={styles.axe_report_item_summary}>
+        <div className={styles.axe_report_item_summary} data-testid="rule-summary">
             <RuleSummary nodes={rule.nodes}/>
         </div>
     </div>

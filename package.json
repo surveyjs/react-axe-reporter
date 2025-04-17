@@ -11,7 +11,7 @@
         "preview": "vite preview",
         "docs": "typedoc",
         "docs:watch": "typedoc --watch"
-        },
+    },
     "keywords": [],
     "author": "",
     "license": "MIT",

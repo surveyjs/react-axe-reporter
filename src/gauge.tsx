@@ -43,6 +43,7 @@ export default function PercentageGauge({
       />
       
       <circle
+        data-testid="circle"
         cx={size / 2}
         cy={size / 2}
         r={radius}
@@ -55,6 +56,7 @@ export default function PercentageGauge({
       />
       
       <text
+        data-testid="circle"
         x="50%"
         y="50%"
         textAnchor="middle"

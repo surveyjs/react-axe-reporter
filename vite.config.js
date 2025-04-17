@@ -26,7 +26,7 @@ export default defineConfig({
     cors: false,
   },
   test: {
-    global: true,
+    globals: true,
     environment: 'jsdom',
     setupFiles: ['./src/setupTests.ts'],
     include: [
