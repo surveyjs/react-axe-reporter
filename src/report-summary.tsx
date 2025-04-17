@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styles/rule-summary.module.css';
+import { getWcagTagTitles } from './tags';
 
 export default function ReportSummary({ data = [] }) {
   return (
@@ -27,7 +28,7 @@ export default function ReportSummary({ data = [] }) {
         </div>
         </div>
         {data.map((rule: { id: "", impact: "", tags: [], description: "", help: "", helpUrl: "", nodes: [] }, index: number) =>
-        <div className={styles.axe_rule_report_row}>
+        <div className={styles.axe_rule_report_row} key={index}>
             <div className={styles.axe_rule_report_row_cell_1}>
                 <div className={styles.axe_rule_report_row_cell_content}>
                     <span className={styles.axe_rule_report_row_cell_text}>{index+1}</span>
@@ -35,12 +36,12 @@ export default function ReportSummary({ data = [] }) {
             </div>
             <div className={styles.axe_rule_report_row_cell_2}>
                 <div className={styles.axe_rule_report_row_cell_content}>
-                    <span className={styles.axe_rule_report_row_cell_link}>{rule.help}</span>
+                    <a href={rule.helpUrl} className={styles.axe_rule_report_row_cell_link}>{rule.help}</a>
                 </div>
             </div>
             <div className={styles.axe_rule_report_row_cell_3}>
                 <div className={styles.axe_rule_report_row_cell_content}>
-                    <span className={styles.axe_rule_report_row_cell_text}>{rule.tags.join(", ")}</span><span className={styles.axe_rule_report_row_cell_additional}>{rule.id}</span>
+                    <span className={styles.axe_rule_report_row_cell_text}>{getWcagTagTitles(rule.tags)}</span><span className={styles.axe_rule_report_row_cell_additional}>{rule.id}</span>
                 </div>
             </div>
             <div className={styles.axe_rule_report_row_cell_4}>

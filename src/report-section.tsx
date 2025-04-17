@@ -21,7 +21,7 @@ export default function ReportSection({ title = "", data = [] }) {
           </div>
         </div>
       </div>
-      {collapsed ? null : data.map(rule => <ReportItem rule={rule}/>)}
+      {collapsed ? null : data.map((rule, index) => <ReportItem rule={rule} key={index}/>)}
     </div>
   );
 };

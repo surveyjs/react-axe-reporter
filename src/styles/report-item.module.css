@@ -163,7 +163,8 @@
 }
 
 .axe_report_item_summary {
-  margin-top: 16px;
   display: flex;
+  width: 100%;
+  margin-top: 16px;
   align-items: flex-start;
 }

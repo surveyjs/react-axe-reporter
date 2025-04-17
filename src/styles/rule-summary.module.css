@@ -59,8 +59,8 @@
     display: flex;
     align-items: flex-start;
     box-sizing: border-box;
-    width: 5%;
-    flex: 0 0 5%;
+    width: 90px;
+    flex: 0 0 90px;
 }
 
 .axe_rule_report_row {
@@ -85,17 +85,13 @@
 }
 
 .axe_rule_report_row_cell_text {
-    flex: 1 0 0;
     color: var(--General-Forecolor-75, #505050);
     text-align: left;
     font-family: Lato;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px
-        /* 171.429% */
-    ;
-    display: inline-block;
+    line-height: 24px;
 }
 
 .axe_rule_report_row_cell_2 {
@@ -143,6 +139,16 @@
     display: flex;
     align-items: flex-start;
     box-sizing: border-box;
-    width: 5%;
-    flex: 0 0 5%;
+    width: 90px;
+    flex: 0 0 90px;
+}
+
+.axe_rule_report_header_cell_4 .axe_rule_report_header_cell_content {
+    width: 100%;
+    align-items: center;
+}
+
+.axe_rule_report_row_cell_4 .axe_rule_report_row_cell_content {
+    width: 100%;
+    align-items: center;
 }

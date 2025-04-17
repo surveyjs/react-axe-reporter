@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles/report-item.module.css';
 import RuleSummary from './rule-summary';
+import { getWcagTagTitles } from './tags';
 
 export default function ReportItem({ rule = { id: "", impact: "", tags: [], description: "", help: "", helpUrl: "", nodes: [] } }) {
   return (
@@ -14,7 +15,7 @@ export default function ReportItem({ rule = { id: "", impact: "", tags: [], desc
                 <div className={styles.axe_report_item_info_label}><span className={styles.axe_report_item_info_label_text}>{rule.id}:</span></div>
                 <div className={styles.axe_report_item_info_values}>
                     <div className={styles.axe_report_item_info_value}>
-                        <span className={styles.axe_report_item_info_value_title}>{rule.tags.join(", ")}</span>
+                        <span className={styles.axe_report_item_info_value_title}>{getWcagTagTitles(rule.tags)}</span>
                     </div>
                 </div>
             </div>
@@ -22,8 +23,8 @@ export default function ReportItem({ rule = { id: "", impact: "", tags: [], desc
         <div className={styles.axe_report_item_tags}>
             <div className={styles.axe_report_item_tags_label}><span className={styles.axe_report_item_tags_label_text}>Issue Tags:</span></div>
             <div className={styles.axe_report_item_tags_container}>
-                {rule.tags.map(tag => 
-                <div className={styles.axe_rule_tag}>
+                {rule.tags.map((tag, index) => 
+                <div className={styles.axe_rule_tag} key={index}>
                     <div className={styles.axe_rule_tag_container}><span className={styles.axe_rule_tag_text}>{tag}</span></div>
                 </div>
                 )}
