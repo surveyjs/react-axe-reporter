@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './styles/report-section.module.css';
 import Collapse_16x16 from './assets/Collapse_16x16';
 import Expand_16x16 from './assets/Expand_16x16';
-import ReportRule from './report-rule';
+import ReportItem from './report-item';
 
 export default function ReportSection({ title = "", data = [] }) {
   const [collapsed, setCollapsed] = useState(true);
@@ -21,7 +21,7 @@ export default function ReportSection({ title = "", data = [] }) {
           </div>
         </div>
       </div>
-      {collapsed ? null : data.map(rule => <ReportRule rule={rule}/>)}
+      {collapsed ? null : data.map(rule => <ReportItem rule={rule}/>)}
     </div>
   );
 };
