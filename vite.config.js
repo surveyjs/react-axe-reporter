@@ -5,7 +5,7 @@ const noCors = () => {
   return {
     name: "no-cors",
     transformIndexHtml(html) {
-      return html.replace(`crossorigin`, "");
+      return html.replace(`crossorigin `, "");
     }
   }
 }
@@ -16,13 +16,10 @@ export default defineConfig({
   base: "./",
   build: {
     outDir: './docs/example',
-    emptyOutDir: false
+    emptyOutDir: true
   },
   server: {
     host: '0.0.0.0',
-    cors: false,
-  },
-  preview: {
     cors: false,
   },
   test: {

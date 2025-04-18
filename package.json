@@ -7,10 +7,9 @@
         "dev": "vite --host 0.0.0.0",
         "test": "vitest",
         "test:cov": "vitest run --coverage",
-        "build": "tsc && vite build",
+        "build": "tsc && vite build --config vite.config.build.js",
         "preview": "vite preview",
-        "docs": "typedoc",
-        "docs:watch": "typedoc --watch"
+        "docs": "typedoc && vite build"
     },
     "keywords": [],
     "author": "",

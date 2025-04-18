@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Axe Checks</title>
+    <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.js"></script>
+    <script src="./dist/index.umd.cjs"></script>
+    <link rel="stylesheet" type="text/css" href="./dist/index.css" />
+    <script src="./public/results.js"></script>
+    </head>
+  <body style="margin: 0; box-sizing: border-box; background-color: #f5f5f5;">
+    <div id="root" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0;"></div>
+    <script type="text/babel">
+      ReactDOM.createRoot(document.getElementById('root')).render(
+        <React.StrictMode>
+          <AxeReport data={results} info1='React' info2='Dynamic Matrix'/>
+        </React.StrictMode>
+      );
+    </script>
+  </body>
+</html>

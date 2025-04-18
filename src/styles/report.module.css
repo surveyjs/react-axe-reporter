@@ -2,16 +2,17 @@
 
 .axe_report {
   display: flex;
-  width: 100%;
   padding: 64px 80px;
   flex-direction: column;
   align-items: center;
   gap: 48px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
   border-radius: 8px;
   background: var(--General-Backcolor, #FFF);
   box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-  height: 100%;
 }
 
 .axe_report_header {
