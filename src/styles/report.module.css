@@ -12,7 +12,6 @@
   box-sizing: border-box;
   border-radius: 8px;
   background: var(--General-Backcolor, #FFF);
-  box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.25);
 }
 
 .axe_report_header {
@@ -35,6 +34,7 @@
   display: flex;
   padding-bottom: 16px;
   align-items: flex-start;
+  width: 100%;
 }
 
 .axe_report_summary_header_container {

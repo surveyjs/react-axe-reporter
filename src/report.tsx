@@ -47,10 +47,10 @@ export default function AxeReport({ data = { passes: [], violations: []}, info1 
       </div>
       <div className={styles.axe_report_content}>
         <div className={styles.axe_report_section}>
-          <ReportSection title="AXE Failed Checks" data={data.violations} />
+          <ReportSection title="Failed AXE Checks" data={data.violations} />
         </div>
         <div className={styles.axe_report_section}>
-          <ReportSection title="AXE Passed Checks" data={data.passes} />
+          <ReportSection title="Passed AXE Checks" data={data.passes} />
         </div>
       </div>
     </div>

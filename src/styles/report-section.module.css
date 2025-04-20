@@ -17,6 +17,7 @@
   align-items: center;
   gap: 64px;
   width: 100%;
+  cursor: pointer;
 }
 
 .axe_report_section_header_title {
@@ -37,6 +38,10 @@
   font-weight: 700;
   line-height: 28px;
   display: inline-block;
+}
+
+.axe_report_section_header_title_text_collapsed {
+  color: var(--General-Forecolor, #161616);
 }
 
 .axe_report_section_header_button {

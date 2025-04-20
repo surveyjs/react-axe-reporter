@@ -21,9 +21,9 @@ export default function ReportSection({ title = "", data = [] }) {
   };
   return (
     <div className={styles.axe_report_section_container}>
-      <div className={styles.axe_report_section_header}>
-        <div className={styles.axe_report_section_header_title}><span className={styles.axe_report_section_header_title_text}>{data.length} {title}</span></div>
-        <div className={styles.axe_report_section_header_button} onClick={handleToggle}>
+      <div className={styles.axe_report_section_header} onClick={handleToggle}>
+        <div className={styles.axe_report_section_header_title}><span className={styles.axe_report_section_header_title_text + (collapsed ? (" " + styles.axe_report_section_header_title_text_collapsed) : "")}>{data.length} {title}</span></div>
+        <div className={styles.axe_report_section_header_button}>
           <div className={styles.axe_report_section_header_button_image_container}>
             <div className={styles.axe_report_section_header_button_image}>
               {collapsed ? <Expand_16x16 /> : <Collapse_16x16 />}
