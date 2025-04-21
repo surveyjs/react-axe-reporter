@@ -139,7 +139,7 @@ An array of DOM nodes affected by the rule.
 
 ## Styling
 
-The component uses CSS modules for styling. You can customize the appearance by overriding the CSS classes in your own stylesheet.
+The component [uses CSS modules](./src/styles/) for styling. You can customize the appearance by overriding the CSS classes in your own stylesheet.
 
 ## Contributing
 
