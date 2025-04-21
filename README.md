@@ -1,6 +1,6 @@
-# Axe HTML Reporter
+# React Axe HTML Reporter
 
-A React-based HTML reporter for [axe-core](https://github.com/dequelabs/axe-core) accessibility testing results. This component provides a beautiful and interactive way to display accessibility test results, including passed and failed checks, with detailed information about each issue.
+A React-based HTML reporter for [axe-core](https://github.com/dequelabs/axe-core) accessibility testing results. This component provides an interactive and visually appealing UI that displays lists of passed and failed accessibility checks and detailed information about each issue.
 
 ## Features
 
@@ -57,7 +57,7 @@ function App() {
     <AxeReport 
       data={axeResults}
       info1="Tested on: example.com"
-      info2="Date: 2024-04-17"
+      info2="Date: 2025-04-17"
     />
   );
 }
@@ -65,50 +65,77 @@ function App() {
 
 ## Components
 
-### AxeReport
+### `AxeReport`
+
 The main component that displays the complete accessibility report.
 
-#### Props
-- `data` (Object): The axe-core results object containing `passes` and `violations` arrays
-- `info1` (string): Additional information to display in the header
-- `info2` (string): Additional information to display in the header
+Props:
 
-### PercentageGauge
+- `data`: `object`\
+An `axe-core` results object that contains the `passes` and `violations` arrays.
+- `info1`: `string`\
+Additional information to display in the header.
+- `info2`: `string`\
+Additional information to display in the header.
+
+### `PercentageGauge`
+
 A circular gauge component that displays the overall accessibility score.
 
-#### Props
-- `percentage` (number): The percentage value to display (0-100)
-- `size` (number): The size of the gauge in pixels
-- `strokeWidth` (number): The width of the gauge's stroke
-- `color` (string): The color of the progress indicator
-- `backgroundColor` (string): The color of the background track
-- `textColor` (string): The color of the percentage text
-- `textSize` (number): The size of the percentage text
+Props:
 
-### ReportSection
+- `percentage`: `number`\
+A percentage value to display (0-100).
+- `size`: `number`\
+The size of the gauge in pixels.
+- `strokeWidth`: `number`\
+The width of the gauge's stroke.
+- `color`: `string`\
+The color of the progress indicator.
+- `backgroundColor`: `string`\
+The color of the background track.
+- `textColor`: `string`\
+The color of the percentage text.
+- `textSize`: `number`\
+The size of the percentage text.
+
+### `ReportSection`
+
 A collapsible section component that displays a list of accessibility check results.
 
-#### Props
-- `title` (string): The title of the section
-- `data` (Array): Array of accessibility check results
+Props:
 
-### ReportItem
+- `title`: `string`\
+The section title.
+- `data`: `object[]`\
+An array of accessibility check results.
+
+### `ReportItem`
+
 A component that displays detailed information about a single accessibility rule check.
 
-#### Props
-- `rule` (Object): The accessibility rule data object
+Props:
 
-### ReportSummary
+- `rule`: `object`\
+An accessibility rule data object.
+
+### `ReportSummary`
+
 A table component that displays a summary of accessibility rule violations.
 
-#### Props
-- `data` (Array): Array of accessibility rule violations
+Props:
 
-### RuleSummary
+- `data`: `object[]`\
+An array of accessibility rule violations.
+
+### `RuleSummary`
+
 A table component that displays detailed information about nodes affected by an accessibility rule.
 
-#### Props
-- `nodes` (Array): Array of DOM nodes affected by the rule
+Props:
+
+- `nodes`: `object[]`\
+An array of DOM nodes affected by the rule.
 
 ## Styling
 
@@ -120,7 +147,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
 ## Acknowledgments
 
