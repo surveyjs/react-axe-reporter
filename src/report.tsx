@@ -34,9 +34,20 @@ export default function AxeReport({ data = { passes: [], violations: []}, info1 
           <div className={styles.axe_report_summary_spacing}>
             <div className={styles.axe_report_summary_spacing_content}></div>
           </div>
-          <div className={styles.axe_report_summary_table}>
-            <ReportSummary data={data.violations}/>
-          </div>
+          {data.violations.length > 0 && (
+            <div className={styles.axe_report_summary_table}>
+              <ReportSummary data={data.violations}/>
+            </div>
+          )}
+          {data.violations.length == 0 && (
+            <div className={styles.axe_report_summary_ok}>
+              <div className={styles.axe_report_summary_title}><span className={styles.axe_report_summary_title_text}>All checks passed</span></div>
+              <div className={styles.axe_report_summary_description}><span className={styles.axe_report_summary_description_text}>
+                All accessibility checks have been successfully completed, confirming compliance with established standards.
+                This ensures the product is inclusive and user-friendly for individuals of all abilities, providing an equitable experience for everyone.
+              </span></div>
+            </div>
+          )}
         </div>
         <div className={styles.axe_report_chart_summary}>
           <div className={styles.Container_25514_30854}>
@@ -46,9 +57,11 @@ export default function AxeReport({ data = { passes: [], violations: []}, info1 
         </div>
       </div>
       <div className={styles.axe_report_content}>
-        <div className={styles.axe_report_section}>
-          <ReportSection title="Failed AXE Checks" data={data.violations} />
-        </div>
+        {data.violations.length > 0 && (
+          <div className={styles.axe_report_section}>
+            <ReportSection title="Failed AXE Checks" data={data.violations} />
+          </div>
+        )}
         <div className={styles.axe_report_section}>
           <ReportSection title="Passed AXE Checks" data={data.passes} />
         </div>
