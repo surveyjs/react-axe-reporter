@@ -103,7 +103,7 @@ describe('PercentageGauge Component', () => {
     };
 
     it('calculates correct stroke values for default props', () => {
-      const [dash, gap] = calculateStrokeValues(256, 10, 0);
+      const [dash, gap] = calculateStrokeValues(256, 6.67, 0);
       const { container } = render(<PercentageGauge />);
       const circles = container.querySelectorAll('circle');
       expect(circles[1].getAttribute('stroke-dasharray')).toBe(`${dash} ${gap}`);

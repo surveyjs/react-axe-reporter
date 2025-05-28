@@ -5,7 +5,7 @@
   padding: 64px 80px;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
+  gap: 32px;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -113,6 +113,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-self: center;
 }
 
 .axe_report_content {
@@ -121,6 +122,22 @@
   align-items: flex-start;
   gap: 16px;
   width: 100%;
+}
+
+.axe_report_info_panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 50%;
+  max-width: 690px;
+  color: rgba(80, 80, 80, 1);
+  font-family: Lato;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  background: rgba(236, 242, 251, 1);
+  padding: 16px
 }
 
 .axe_report_section {

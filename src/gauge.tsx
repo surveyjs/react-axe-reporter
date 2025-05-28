@@ -18,11 +18,11 @@ import React from 'react';
 export default function PercentageGauge({
   percentage = 0,
   size = 256,
-  strokeWidth = 10,
+  strokeWidth = 6.67,
   color = '#19B394',
   backgroundColor = 'rgb(245, 245, 245)',
   textColor = '#19B394',
-  textSize = 48,
+  textSize = 32,
 }) {
   const clampedPercentage = Math.min(Math.max(percentage, 0), 100);
   

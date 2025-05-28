@@ -24,21 +24,14 @@ describe('StatusText Component', () => {
     it('contains both span elements', () => {
       const { container } = render(<StatusText />);
       const containerDiv = container.firstChild as HTMLElement;
-      expect(containerDiv.children).toHaveLength(2);
+      expect(containerDiv.children).toHaveLength(1);
       const spans = containerDiv.querySelectorAll('span');
-      expect(spans).toHaveLength(2);
+      expect(spans).toHaveLength(1);
     });
   });
 
   // Content verification
   describe('Text Content', () => {
-    it('displays correct title text', () => {
-      render(<StatusText />);
-      const title = screen.getByText('Accessibility Status');
-      expect(title).toBeDefined();
-      expect(title.className).contains(styles.axe_report_status_text_title);
-    });
-
     it('displays full description text', () => {
       render(<StatusText />);
       const description = screen.getByText(
@@ -53,7 +46,6 @@ describe('StatusText Component', () => {
   describe('Accessibility', () => {
     it('has meaningful text content', () => {
       render(<StatusText />);
-      expect(screen.getByText('Accessibility Status')).toBeDefined();
       expect(
         screen.getByText(/Automated testing tools do not cover/)
       ).toBeDefined();
@@ -61,8 +53,7 @@ describe('StatusText Component', () => {
 
     it('maintains proper reading order', () => {
       const { container } = render(<StatusText />);
-      const [title, description] = container.querySelectorAll('span');
-      expect(title.textContent).toBe('Accessibility Status');
+      const [description] = container.querySelectorAll('span');
       expect(description.textContent).toMatch(/Automated testing tools/);
     });
   });
@@ -73,12 +64,6 @@ describe('StatusText Component', () => {
       const { container } = render(<StatusText />);
       const containerDiv = container.firstChild as HTMLElement;
       expect(containerDiv.className).contains(styles.axe_report_status_text);
-    });
-
-    it('applies correct class to title', () => {
-      render(<StatusText />);
-      const title = screen.getByText('Accessibility Status');
-      expect(title.className).contains(styles.axe_report_status_text_title);
     });
 
     it('applies correct class to description', () => {

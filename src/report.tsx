@@ -31,15 +31,8 @@ export default function AxeReport({ data = { passes: [], violations: []}, info1 
               <div className={styles.axe_report_summary_description}><span className={styles.axe_report_summary_description_text}>{info1} {info2}</span></div>
             </div>
           </div>
-          <div className={styles.axe_report_summary_spacing}>
-            <div className={styles.axe_report_summary_spacing_content}></div>
-          </div>
-          {data.violations.length > 0 && (
-            <div className={styles.axe_report_summary_table}>
-              <ReportSummary data={data.violations}/>
-            </div>
-          )}
-          {data.violations.length == 0 && (
+          <StatusText/>
+          {/* {data.violations.length == 0 && (
             <div className={styles.axe_report_summary_ok}>
               <div className={styles.axe_report_summary_title}><span className={styles.axe_report_summary_title_text}>All checks passed</span></div>
               <div className={styles.axe_report_summary_description}><span className={styles.axe_report_summary_description_text}>
@@ -47,21 +40,26 @@ export default function AxeReport({ data = { passes: [], violations: []}, info1 
                 This ensures the product is inclusive and user-friendly for individuals of all abilities, providing an equitable experience for everyone.
               </span></div>
             </div>
-          )}
+          )} */}
         </div>
         <div className={styles.axe_report_chart_summary}>
-          <div className={styles.Container_25514_30854}>
-            <PercentageGauge percentage={percentage} size={274}/>
-          </div>
-          <StatusText/>
+          <PercentageGauge percentage={percentage} size={120}/>
         </div>
       </div>
+      {data.violations.length > 0 && (
+        <div className={styles.axe_report_summary_table}>
+          <ReportSummary data={data.violations}/>
+        </div>
+      )}
       <div className={styles.axe_report_content}>
-        {data.violations.length > 0 && (
+        {data.violations.length > 0 && (<>
+          <div className={styles.axe_report_info_panel}>
+            <span>Color contrast ratio is currently measured for the <strong>Contrast theme</strong> only (WCAG 2 Level AA, WCAG 1.4.3). We are working on bringing sufficient level of accessibility (measured by APCA algorithm) to other themes.</span>
+          </div>
           <div className={styles.axe_report_section}>
             <ReportSection title="Failed AXE Checks" data={data.violations} />
           </div>
-        )}
+        </>)}
         <div className={styles.axe_report_section}>
           <ReportSection title="Passed AXE Checks" data={data.passes} />
         </div>
