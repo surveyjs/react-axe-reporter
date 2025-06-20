@@ -1,5 +1,5 @@
 {
-    "name": "axe-reporter",
+    "name": "react-axe-reporter",
     "version": "1.0.0",
     "type": "module",
     "description": "Axe HTML Reporter",
