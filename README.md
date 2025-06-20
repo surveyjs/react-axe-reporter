@@ -1,6 +1,8 @@
 # React Axe HTML Reporter
 
-A React-based HTML reporter for [axe-core](https://github.com/dequelabs/axe-core) accessibility testing results. This component provides an interactive and visually appealing UI that displays lists of passed and failed accessibility checks and detailed information about each issue.
+A React-based HTML reporter that integrates with [axe-core](https://github.com/dequelabs/axe-core) accessibility checker to report any web accessibility issues that might make it hard for people with disabilities to use your application. It provides an interactive and visually appealing UI that displays accessibility testing results as a list of passed and failed accessibility checks, along with detailed information about each issue.
+
+Developed by the SurveyJS team, this axe reporter is designed to make it easier for developers to interpret accessibility test results for dynamic forms built with the Survey Creator component and validate their WCAG compliance.
 
 ## Features
 
