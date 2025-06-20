@@ -15,16 +15,16 @@ A React-based HTML reporter for [axe-core](https://github.com/dequelabs/axe-core
 ## Installation
 
 ```bash
-npm install axe-html-reporter
+npm install react-axe-reporter
 # or
-yarn add axe-html-reporter
+yarn add react-axe-reporter
 ```
 
 ## Usage
 
 ```jsx
 import React from 'react';
-import AxeReport from 'axe-html-reporter';
+import AxeReport from 'react-axe-reporter';
 
 function App() {
   // Example axe-core results

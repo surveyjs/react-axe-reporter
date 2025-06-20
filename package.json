@@ -12,7 +12,7 @@
         "docs": "typedoc && vite build"
     },
     "keywords": [],
-    "author": "",
+    "author": "SurveyJS",
     "license": "MIT",
     "dependencies": {
         "react": "^18.2.0",
