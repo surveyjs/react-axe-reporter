@@ -1,6 +1,6 @@
 {
     "name": "react-axe-reporter",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Axe HTML Reporter",
     "author": "SurveyJS",
     "license": "MIT",
@@ -13,6 +13,7 @@
     "typings": "./types/index.d.ts",
     "exports": {
       ".": {
+        "types": "./types/index.d.ts",
         "import": "./index.js",
         "require": "./index.umd.cjs"
       },
