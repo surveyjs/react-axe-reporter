@@ -18,7 +18,7 @@ import { getWcagTagTitles } from './tags';
  * @param {Array} props.data[].nodes - Array of DOM nodes affected by the rule
  * @returns {JSX.Element} A table summarizing accessibility rule violations
  */
-export default function ReportSummary({ data = [] }) {
+export default function ReportSummary({ data = [] as Array<any> }) {
   return (
     <div className={styles.axe_rule_report}>
         <div className={styles.axe_rule_report_header}>

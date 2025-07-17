@@ -19,7 +19,7 @@ import ReportSection from './report-section';
  * @param {string} [props.info2=""] - Additional information text to display in the header
  * @returns {JSX.Element} A complete AXE accessibility report
  */
-export default function AxeReport({ data = { passes: [], violations: []}, info1 = "", info2 = "" }) {
+export default function AxeReport({ data = { passes: [] as Array<any>, violations: [] as Array<any>}, info1 = "", info2 = "" }) {
   const percentage = Math.ceil((data.passes.length/(data.passes.length + data.violations.length)) * 100);
   return (
     <div className={styles.axe_report}>
