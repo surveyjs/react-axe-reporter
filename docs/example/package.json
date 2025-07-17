@@ -1,0 +1,24 @@
+{
+    "name": "react-axe-reporter",
+    "version": "1.0.1",
+    "description": "Axe HTML Reporter",
+    "author": "SurveyJS",
+    "license": "MIT",
+    "type": "module",
+    "files": [
+      "**/*"
+    ],
+    "main": "./index.umd.cjs",
+    "module": "./index.js",
+    "exports": {
+      ".": {
+        "import": "./index.js",
+        "require": "./index.umd.cjs"
+      },
+      "./style.css": "./index.css"
+    },
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    }
+  }
