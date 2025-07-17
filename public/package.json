@@ -1,6 +1,6 @@
 {
     "name": "react-axe-reporter",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Axe HTML Reporter",
     "author": "SurveyJS",
     "license": "MIT",
@@ -10,6 +10,7 @@
     ],
     "main": "./index.umd.cjs",
     "module": "./index.js",
+    "typings": "./types/index.d.ts",
     "exports": {
       ".": {
         "import": "./index.js",
@@ -18,7 +19,9 @@
       "./style.css": "./index.css"
     },
     "dependencies": {
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+    },
+    "peerDependencies": {
+      "react": "^16.5.0 || ^17.0.1 || ^18.1.0 || ^19.0.0",
+      "react-dom": "^16.5.0 || ^17.0.1 || ^18.1.0 || ^19.0.0"
     }
   }

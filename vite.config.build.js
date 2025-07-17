@@ -1,14 +1,15 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import react from '@vitejs/plugin-react';
+import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), dts({outDir: 'dist/types'})],
   build: {
     outDir: './dist',
     copyPublicDir: false,
     lib: {
-      entry: resolve(__dirname, './src/report.tsx'),
+      entry: resolve(__dirname, './src/index.tsx'),
       name: 'AxeReport',
       formats: ['es', 'umd'],
       // fileName: (format) => `index.${format}.js`,

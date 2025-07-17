@@ -30,6 +30,7 @@
         "typedoc-github-theme": "^0.3.0",
         "typescript": "^5.8.3",
         "vite": "^6.3.1",
+        "vite-plugin-dts": "^4.5.4",
         "vitest": "^3.1.1"
     }
 }
