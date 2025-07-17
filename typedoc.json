@@ -3,7 +3,7 @@
     "entryPoints": ["src/**/*.tsx"],
     "entryPointStrategy": "expand",
     "out": "docs",
-    "name": "Axe Reporter Documentation",
+    "name": "React Axe Reporter Documentation",
     "includeVersion": true,
     "excludePrivate": false,
     "excludeProtected": false,
@@ -15,10 +15,10 @@
     "categorizeByGroup": true,
     "searchInComments": true,
     "navigationLinks": {
-      "GitHub": "https://github.com/surveyjs/axe-reporter"
+      "GitHub": "https://github.com/surveyjs/react-axe-reporter"
     },
     "sidebarLinks": {
-      "Live Demo": "https://surveyjs.github.io/axe-reporter/example"
+      "Live Demo": "https://surveyjs.github.io/react-axe-reporter/example/"
     },
     "visibilityFilters": {
       "protected": true,
