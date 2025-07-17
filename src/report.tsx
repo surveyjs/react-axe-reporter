@@ -53,9 +53,9 @@ export default function AxeReport({ data = { passes: [], violations: []}, info1 
       )}
       <div className={styles.axe_report_content}>
         {data.violations.length > 0 && (<>
-          <div className={styles.axe_report_info_panel}>
+          {/* <div className={styles.axe_report_info_panel}>
             <span>Color contrast ratio is currently measured for the <strong>Contrast theme</strong> only (WCAG 2 Level AA, WCAG 1.4.3). We are working on bringing sufficient level of accessibility (measured by APCA algorithm) to other themes.</span>
-          </div>
+          </div> */}
           <div className={styles.axe_report_section}>
             <ReportSection title="Failed AXE Checks" data={data.violations} />
           </div>
