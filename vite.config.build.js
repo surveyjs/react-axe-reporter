@@ -4,7 +4,9 @@ import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-  plugins: [react(), dts({outDir: 'dist/types'})],
+  plugins: [react({
+      jsxRuntime: 'classic',
+    }), dts({outDir: 'dist/types'})],
   build: {
     outDir: './dist',
     copyPublicDir: false,
