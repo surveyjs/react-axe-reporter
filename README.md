@@ -2,7 +2,9 @@
 
 A React-based HTML reporter that integrates with [axe-core](https://github.com/dequelabs/axe-core) accessibility checker to report any web accessibility issues that might make it hard for people with disabilities to use your application. It provides an interactive and visually appealing UI that displays accessibility testing results as a list of passed and failed accessibility checks, along with detailed information about each issue.
 
-Developed by the SurveyJS team, this axe reporter is designed to make it easier for developers to interpret accessibility test results for dynamic forms built with the Survey Creator component and validate their WCAG compliance.
+![React Axe HTML Reporter](https://github.com/surveyjs/react-axe-reporter/blob/7c7b4cc7105cf50d55aa0f30371cf5ad55f3be82/docs/image.png)
+
+Developed by the SurveyJS team, this Axe reporter is designed to make it easier for developers to interpret accessibility test results for dynamic forms built with the Survey Creator component and validate their WCAG compliance.
 
 ## Features
 
@@ -14,56 +16,128 @@ Developed by the SurveyJS team, this axe reporter is designed to make it easier 
 - 📱 Responsive design
 - 🎨 Customizable styling through CSS modules
 
-## Installation
+## Installation and Usage
 
-```bash
-npm install react-axe-reporter
-# or
-yarn add react-axe-reporter
-```
+Follow the steps below to install the required packages and use React Axe Reporter in a Next.js application:
 
-## Usage
+1. **Install dependencies**\
+Install `react-axe-reporter` along with `axe-core` to enable accessibility checks and generate data for visual reports dynamically:
 
-```jsx
-import React from 'react';
-import AxeReport from 'react-axe-reporter';
+    ```bash
+    npm install react-axe-reporter axe-core --save
+    # or
+    yarn add react-axe-reporter axe-core
+    ```
 
-function App() {
-  // Example axe-core results
-  const axeResults = {
-    passes: [
-      {
-        id: "color-contrast",
-        impact: "serious",
-        tags: ["wcag2aa", "wcag143"],
-        description: "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
-        help: "Elements must have sufficient color contrast",
-        helpUrl: "https://dequeuniversity.com/rules/axe/4.4/color-contrast",
-        nodes: []
-      }
-    ],
-    violations: [
-      {
-        id: "image-alt",
-        impact: "critical",
-        tags: ["wcag2a", "wcag111", "section508", "section508.22.a"],
-        description: "Ensures <img> elements have alternate text or a role of none or presentation",
-        help: "Images must have alternate text",
-        helpUrl: "https://dequeuniversity.com/rules/axe/4.4/image-alt",
-        nodes: []
-      }
-    ]
-  };
+2. **Create a client component for accessibility checks**\
+Create a client-side component that receives HTML content and runs Axe accessibility validation. For example, `AxeChecker.tsx`:
 
-  return (
-    <AxeReport 
-      data={axeResults}
-      info1="Tested on: example.com"
-      info2="Date: 2025-04-17"
-    />
-  );
-}
-```
+    ```tsx
+    // src/components/AxeChecker.tsx
+    'use client';
+    import AxeReport from 'react-axe-reporter';
+    import 'react-axe-reporter/style.css';
+    import axe from 'axe-core';
+    import { useEffect, useState } from 'react';
+
+    export default function AxeChecker() {
+      const [report, setReport] = useState<axe.AxeResults | null>(null);
+
+      useEffect(() => {
+        // Notify the opener window that the AxeChecker is ready to receive HTML
+        if (window.opener) {
+          window.opener.postMessage('ready-for-html', '*');
+        }
+
+        // Listen for HTML content and run Axe checks on it
+        const handler = (event: MessageEvent) => {
+          if (event.data?.type === 'AXE_HTML') {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(event.data.html, 'text/html');
+            axe.run(doc, {}, (err, results) => {
+              if (err) {
+                console.error('axe error:', err);
+                return;
+              }
+              setReport(results);
+            });
+          }
+        };
+
+        window.addEventListener('message', handler);
+        return () => window.removeEventListener('message', handler);
+      }, []);
+
+      if (!report) return <p>Running accessibility scan...</p>;
+
+      return (
+        <>
+          <AxeReport
+            data={report}
+            info1={'Tested on: ' + window.opener.location.href}
+            info2={'Date: ' + new Date().toLocaleDateString()}
+          />
+        </>
+      );
+    }
+    ```
+
+3. **Add the component to a page**\
+Render the `AxeChecker` component in a separate page, for example, `axe-report.tsx`:
+
+    ```tsx
+    // src/pages/axe-report.tsx
+    import Head from "next/head";
+    import dynamic from 'next/dynamic';
+
+    const AxeChecker = dynamic(() => import("@/components/AxeChecker"), { ssr: false });
+
+    export default function AxeReport() {
+      return (
+        <>
+          <Head>
+            <title>Axe Report</title>
+            <meta name="description" content="Axe Report" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+          <AxeChecker />
+        </>
+      );
+    }
+    ```
+
+4. **Trigger the Axe validation from another page**\
+Use the following code to open the Axe report page and send the current page's HTML content to it:
+
+    ```tsx
+    // src/components/index.tsx
+    import Head from "next/head";
+
+    export default function Home() {
+      const openAxeReport = () => {
+        const html = document.documentElement.outerHTML;
+        const win = window.open('/axe-report', '_blank');
+
+        const sendWhenReady = (e: MessageEvent) => {
+          if (e.data === 'ready-for-html') {
+            win?.postMessage({ type: 'AXE_HTML', html }, '*');
+            window.removeEventListener('message', sendWhenReady);
+          }
+        };
+        window.addEventListener('message', sendWhenReady);
+      };
+
+      return (
+        <>
+          <Head>
+            {/* ... */}
+          </Head>
+          <button onClick={openAxeReport}>Run Axe Validation</button>
+        </>
+      );
+    }
+    ```
 
 ## Components
 
@@ -145,7 +219,7 @@ The component [uses CSS modules](./src/styles/) for styling. You can customize t
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to submit a pull request.
 
 ## License
 
