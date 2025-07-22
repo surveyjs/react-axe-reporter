@@ -6,6 +6,8 @@ A React-based HTML reporter that integrates with [axe-core](https://github.com/d
 
 Developed by the SurveyJS team, this Axe reporter is designed to make it easier for developers to interpret accessibility test results for dynamic forms built with the Survey Creator component and validate their WCAG compliance.
 
+[Live Demo](https://surveyjs.github.io/react-axe-reporter/example/)
+
 ## Features
 
 - 📊 Visual percentage gauge showing overall accessibility score
